@@ -9,13 +9,13 @@ namespace ExerciciosRefatoracao.Dominio
     public class Cliente
     {
 
-        public RazaoSocial RazaoSocial { get; private set; }
+        public string RazaoSocial { get; private set; }
 
         public string Nome { get; set; }
 
         public string CPF { get; set; }
 
-        public CNPJ CNPJ { get; private set; }
+        public string CNPJ { get; private set; }
 
         public string EndEntregaLogradouro { get; private set; }
         public string EndEntregaNumero { get; private set; }
@@ -102,23 +102,5 @@ namespace ExerciciosRefatoracao.Dominio
         }
 
     }
-    public class CNPJ
-    {
-        public string Codigo { get; private set; }
-
-        public CNPJ(string codigo)
-        {
-            this.Codigo = codigo;
-        }
-    }
-
-    public class RazaoSocial
-    {
-        public string Nome { get; private set; }
-
-        public RazaoSocial(string nome)
-        {
-            Nome = nome;
-        }
-    }
+   
 }
