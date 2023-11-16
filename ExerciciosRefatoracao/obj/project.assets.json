@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\etec\\Desktop\\ExerciciosRefatoracao\\ExerciciosRefatoracao\\ExerciciosRefatoracao.csproj",
+      "projectUniqueName": "C:\\Users\\etec\\Documents\\GitHub\\ExerciciosRefatoracao\\ExerciciosRefatoracao\\ExerciciosRefatoracao.csproj",
       "projectName": "ExerciciosRefatoracao",
-      "projectPath": "C:\\Users\\etec\\Desktop\\ExerciciosRefatoracao\\ExerciciosRefatoracao\\ExerciciosRefatoracao.csproj",
+      "projectPath": "C:\\Users\\etec\\Documents\\GitHub\\ExerciciosRefatoracao\\ExerciciosRefatoracao\\ExerciciosRefatoracao.csproj",
       "packagesPath": "C:\\Users\\etec\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\etec\\Desktop\\ExerciciosRefatoracao\\ExerciciosRefatoracao\\obj\\",
+      "outputPath": "C:\\Users\\etec\\Documents\\GitHub\\ExerciciosRefatoracao\\ExerciciosRefatoracao\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\etec\\AppData\\Roaming\\NuGet\\NuGet.Config",
