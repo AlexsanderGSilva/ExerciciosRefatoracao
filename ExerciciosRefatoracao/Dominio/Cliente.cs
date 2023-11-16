@@ -1,106 +1,63 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ExerciciosRefatoracao.Dominio
 {
     public class Cliente
     {
-
-        public string RazaoSocial { get; private set; }
-
+        public string RazaoSocial { get; set; }
         public string Nome { get; set; }
-
         public string CPF { get; set; }
+        public string CNPJ { get; set; }
 
-        public string CNPJ { get; private set; }
+        public Endereco EndEntrega { get; private set; } = new Endereco();
+        public Endereco EndCobranca { get; private set; } = new Endereco();
+        public Endereco EndFaturamento { get; private set; } = new Endereco();
 
-        public string EndEntregaLogradouro { get; private set; }
-        public string EndEntregaNumero { get; private set; }
-        public string EndEntregaComplemento { get; private set; }
-        public string EndEntregaBairro { get; private set; }
-        public string EndEntregaCEP { get; private set; }
-        public string EndEntregaMunicipio { get; private set; }
-        public string EndEntregaUF { get; private set; }
-
-        public string EndCobrancaLogradouro { get; private set; }
-        public string EndCobrancaNumero { get; private set; }
-        public string EndCobrancaComplemento { get; private set; }
-        public string EndCobrancaBairro { get; private set; }
-        public string EndCobrancaCEP { get; private set; }
-        public string EndCobrancaMunicipio { get; private set; }
-        public string EndCobrancaUF { get; private set; }
-
-        public string EndFaturamentoLogradouro { get; private set; }
-        public string EndFaturamentoNumero { get; private set; }
-        public string EndFaturamentoComplemento { get; private set; }
-        public string EndFaturamentoBairro { get; private set; }
-        public string EndFaturamentoCEP { get; private set; }
-        public string EndFaturamentoMunicipio { get; private set; }
-        public string EndFaturamentoUF { get; private set; }
-
-        public string GetTextoEnderecoCobranca()
+        public void SetEnderecoFaturamento(string logradouro, string numero, string complemento, string bairro, string cep, string municipio, string uf)
         {
-            return $"Endereço Cobrança: {EndCobrancaLogradouro} {EndCobrancaNumero} {EndCobrancaComplemento} - {EndCobrancaBairro} - CEP {EndCobrancaCEP} - {EndCobrancaMunicipio} - {EndCobrancaUF}";
+            SetEndereco(EndFaturamento, logradouro, numero, complemento, bairro, cep, municipio, uf);
         }
 
-        public string GetTextoEnderecoEntrega()
+        public void SetEnderecoEntrega(string logradouro, string numero, string complemento, string bairro, string cep, string municipio, string uf)
         {
-            return $"Endereço Entrega: {EndEntregaLogradouro} {EndEntregaNumero} {EndEntregaComplemento} - {EndEntregaBairro} - CEP {EndEntregaCEP} - {EndEntregaMunicipio} - {EndEntregaUF}";
+            SetEndereco(EndEntrega, logradouro, numero, complemento, bairro, cep, municipio, uf);
         }
 
-        public string GetTextoEnderecoFaturamento()
+        public void SetEnderecoCobranca(string logradouro, string numero, string complemento, string bairro, string cep, string municipio, string uf)
         {
-            return $"Endereço Faturamento: {EndFaturamentoLogradouro} {EndFaturamentoNumero} {EndFaturamentoComplemento} - {EndFaturamentoBairro} - CEP {EndFaturamentoCEP} - {EndFaturamentoMunicipio} - {EndFaturamentoUF}";
+            SetEndereco(EndCobranca, logradouro, numero, complemento, bairro, cep, municipio, uf);
         }
 
-
-        public void SetEnderecoFaturamento(string endFaturamentoLogradouro, string endFaturamentoNumero, string endFaturamentoComplemento, string endFaturamentoBairro, string endFaturamentoCEP, string endFaturamentoMunicipio, string endFaturamentoUF)
+        private void SetEndereco(Endereco endereco, string logradouro, string numero, string complemento, string bairro, string cep, string municipio, string uf)
         {
-            EndFaturamentoLogradouro = endFaturamentoLogradouro;
-            EndFaturamentoNumero = endFaturamentoNumero;
-            EndFaturamentoComplemento = endFaturamentoComplemento;
-            EndFaturamentoBairro = endFaturamentoBairro;
-            EndFaturamentoCEP = endFaturamentoCEP;
-            EndFaturamentoMunicipio = endFaturamentoMunicipio;
-            EndFaturamentoUF = endFaturamentoUF;
+            endereco.Logradouro = logradouro;
+            endereco.Numero = numero;
+            endereco.Complemento = complemento;
+            endereco.Bairro = bairro;
+            endereco.CEP = cep;
+            endereco.Municipio = municipio;
+            endereco.UF = uf;
         }
 
-        public void SetEnderecoEntrega(string endEntregaLogradouro, string endEntregaNumero, string endEntregaComplemento, string endEntregaBairro, string endEntregaCEP, string endEntregaMunicipio, string endEntregaUF)
+        public string GetTextoEndereco(Endereco endereco)
         {
-            EndEntregaLogradouro = endEntregaLogradouro;
-            EndEntregaNumero = endEntregaNumero;
-            EndEntregaComplemento = endEntregaComplemento;
-            EndEntregaBairro = endEntregaBairro;
-            EndEntregaCEP = endEntregaCEP;
-            EndEntregaMunicipio = endEntregaMunicipio;
-            EndEntregaUF = endEntregaUF;
+            return $"Endereço: {endereco.Logradouro} {endereco.Numero} {endereco.Complemento} - {endereco.Bairro} - CEP {endereco.CEP} - {endereco.Municipio} - {endereco.UF}";
         }
-
-        public void SetEnderecoCobranca(string endCobrancaLogradouro, string endCobrancaNumero, string endCobrancaComplemento, string endCobrancaBairro, string endCobrancaCEP, string endCobrancaMunicipio, string endCobrancaUF)
-        {
-            EndCobrancaLogradouro = endCobrancaLogradouro;
-            EndCobrancaNumero = endCobrancaNumero;
-            EndCobrancaComplemento = endCobrancaComplemento;
-            EndCobrancaBairro = endCobrancaBairro;
-            EndCobrancaCEP = endCobrancaCEP;
-            EndCobrancaMunicipio = endCobrancaMunicipio;
-            EndCobrancaUF = endCobrancaUF;
-        }
-
 
         public override string ToString()
         {
-            return "===Dados do Cliente===\n" +
-                   $"CPF: {this.CPF}\n" +
-                   $"Nome: {this.Nome}\n" +
-                   $"{this.GetTextoEnderecoCobranca()}\n"  +
-                   $"{this.GetTextoEnderecoEntrega()}\n" +
-                   $"{this.GetTextoEnderecoFaturamento()}";
+            return $"===Dados do Cliente===\n{(string.IsNullOrEmpty(this.CPF) ? $"CNPJ: {this.CNPJ}\nRazão Social: {this.RazaoSocial}" : $"CPF: {this.CPF}\nNome: {this.Nome}")}\n{GetTextoEndereco(EndCobranca)}\n{GetTextoEndereco(EndEntrega)}\n{GetTextoEndereco(EndFaturamento)}";
         }
-
     }
-   
+
+    public class Endereco
+    {
+        public string Logradouro { get; set; }
+        public string Numero { get; set; }
+        public string Complemento { get; set; }
+        public string Bairro { get; set; }
+        public string CEP { get; set; }
+        public string Municipio { get; set; }
+        public string UF { get; set; }
+    }
 }

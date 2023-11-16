@@ -19,7 +19,7 @@ namespace ExerciciosRefatoracao.UI
             Console.Write("Nº CNPJ: ");
             cli.CNPJ = Console.ReadLine();
 
-            Console.Write("Nome Cliente: ");
+            Console.Write("Razão Social: ");
             cli.RazaoSocial = Console.ReadLine();
 
             Console.WriteLine("");
